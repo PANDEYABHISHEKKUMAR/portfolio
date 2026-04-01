@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek Kumar Pandey — Tech Consultant & IT Operations Engineer</title>
+  <meta name="description" content="Portfolio of Abhishek Kumar Pandey — Tech Consultant specializing in IT Operations, Automation, and Full-Stack Development at BCG." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-card: #16161f;
+      --border: #1e1e2e;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --orange: #f59e0b;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glow effect */
+    .glow {
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .glow-border {
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    /* Grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Animated gradient orb */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skill tag */
+    .skill-tag {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      color: var(--accent-light);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .skill-tag.green { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.15); color: var(--green); }
+    .skill-tag.green:hover { background: rgba(34, 197, 94, 0.2); border-color: rgba(34, 197, 94, 0.4); }
+    .skill-tag.blue { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.15); color: var(--blue); }
+    .skill-tag.blue:hover { background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4); }
+    .skill-tag.orange { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.15); color: var(--orange); }
+    .skill-tag.orange:hover { background: rgba(245, 158, 11, 0.2); border-color: rgba(245, 158, 11, 0.4); }
+    .skill-tag.pink { background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.15); color: var(--pink); }
+    .skill-tag.pink:hover { background: rgba(236, 72, 153, 0.2); border-color: rgba(236, 72, 153, 0.4); }
+    .skill-tag.cyan { background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+    .skill-tag.cyan:hover { background: rgba(6, 182, 212, 0.2); border-color: rgba(6, 182, 212, 0.4); }
+
+    /* Project card */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    /* Timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 24px;
+      width: 2px;
+      bottom: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item:last-child::after { display: none; }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    /* Nav */
+    nav {
+      backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent-light); }
+
+    /* Status dot */
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Section */
+    .section { padding: 100px 0; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 12px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .badge-active { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+    .badge-internal { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+    .badge-automation { background: rgba(245, 158, 11, 0.15); color: var(--orange); }
+    .badge-prototype { background: rgba(236, 72, 153, 0.15); color: var(--pink); }
+
+    /* CTA button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* Metric card */
+    .metric {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .metric-value {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero-title { font-size: 2.5rem !important; }
+      .grid-cols-responsive { grid-template-columns: 1fr !important; }
+    }
+
+    /* Workflow diagram */
+    .workflow-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: rgba(99, 102, 241, 0.05);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .workflow-arrow {
+      color: var(--accent);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body class="grid-bg">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+      <span class="mono" style="font-size: 15px; font-weight: 600; color: var(--accent-light);">AKP<span style="color: var(--text-muted);">.dev</span></span>
+      <div style="display: flex; gap: 28px; align-items: center;">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px;">
+    <div class="orb" style="width: 300px; height: 300px; background: var(--accent); top: 20%; left: 10%;"></div>
+    <div class="orb" style="width: 200px; height: 200px; background: var(--cyan); top: 60%; right: 15%; animation-delay: -3s;"></div>
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1;">
+      <div class="fade-in">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+          <span class="status-dot"></span>
+          <span class="mono" style="font-size: 13px; color: var(--green);">Available for opportunities</span>
+        </div>
+        <h1 class="hero-title" style="font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px;">
+          Hi, I'm <span class="gradient-text">Abhishek</span>
+        </h1>
+        <p style="font-size: 20px; color: var(--text-secondary); max-width: 600px; margin-bottom: 12px;">
+          Tech Consultant & IT Operations Engineer building automation systems, infrastructure solutions, and developer tools at <strong style="color: var(--text-primary);">Boston Consulting Group</strong>.
+        </p>
+        <p class="mono" style="font-size: 13px; color: var(--text-muted); margin-bottom: 36px;">
+          4 years in IT ops &bull; n8n automations &bull; React &bull; Python &bull; infra management
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#projects" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            View Projects
+          </a>
+          <a href="https://www.linkedin.com/in/abhishek-kumar-pandey-85199a208" target="_blank" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/Apandey8802" target="_blank" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-secondary);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr);" class="grid-cols-responsive">
+      <div class="metric fade-in">
+        <div class="metric-value gradient-text">4+</div>
+        <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Years Experience</div>
+      </div>
+      <div class="metric fade-in">
+        <div class="metric-value gradient-text">4</div>
+        <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">n8n Automations</div>
+      </div>
+      <div class="metric fade-in">
+        <div class="metric-value gradient-text">95%+</div>
+        <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">User Satisfaction</div>
+      </div>
+      <div class="metric fade-in">
+        <div class="metric-value gradient-text">3</div>
+        <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Orgs Served</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <div class="fade-in">
+        <div class="section-label">About</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 24px;">Building systems that keep enterprises running</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="grid-cols-responsive">
+          <div>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">
+              I'm a Tech Consultant at <strong style="color: var(--text-primary);">Boston Consulting Group (BCG)</strong>, where I manage IT operations, build workflow automations, and develop internal tools that improve how teams work.
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">
+              My sweet spot is at the intersection of <strong style="color: var(--accent-light);">IT operations</strong> and <strong style="color: var(--cyan);">software development</strong> — I don't just maintain systems, I build tools that automate them. From n8n workflows that auto-draft offboarding emails to React apps for cybersecurity training, I bridge the gap between infrastructure and code.
+            </p>
+            <p style="color: var(--text-secondary);">
+              Currently pursuing my <strong style="color: var(--text-primary);">BCA from Chandigarh University</strong> while working full-time — because I believe in always leveling up.
+            </p>
+          </div>
+          <div>
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+              <div class="mono" style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">// current_status.json</div>
+              <pre class="mono" style="font-size: 13px; line-height: 1.8; color: var(--text-secondary);"><code>{
+  <span style="color: var(--accent-light);">"role"</span>: <span style="color: var(--green);">"Tech Consultant"</span>,
+  <span style="color: var(--accent-light);">"company"</span>: <span style="color: var(--green);">"BCG (via PersolKelly)"</span>,
+  <span style="color: var(--accent-light);">"location"</span>: <span style="color: var(--green);">"New Delhi, India"</span>,
+  <span style="color: var(--accent-light);">"focus"</span>: [
+    <span style="color: var(--green);">"IT Operations"</span>,
+    <span style="color: var(--green);">"Workflow Automation"</span>,
+    <span style="color: var(--green);">"Internal Tooling"</span>
+  ],
+  <span style="color: var(--accent-light);">"education"</span>: <span style="color: var(--green);">"BCA (Pursuing)"</span>,
+  <span style="color: var(--accent-light);">"open_to"</span>: <span style="color: var(--green);">"New Challenges"</span>
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section" style="background: var(--bg-secondary);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <div class="fade-in">
+        <div class="section-label">Experience</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 40px;">Where I've made an impact</h2>
+
+        <div class="timeline-item fade-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="font-size: 18px; font-weight: 700;">IT Operations / Infrastructure Engineer</h3>
+              <p style="color: var(--accent-light); font-weight: 600;">Boston Consulting Group (BCG)</p>
+              <p style="color: var(--text-muted); font-size: 13px;">Onsite via PersolKelly</p>
+            </div>
+            <span class="mono" style="font-size: 13px; color: var(--text-muted);">Jan 2025 &mdash; Present</span>
+          </div>
+          <ul style="color: var(--text-secondary); margin-top: 12px; padding-left: 16px; font-size: 14px; display: grid; gap: 8px;">
+            <li>Enhanced SLA compliance and removed aging tickets through organized incident management</li>
+            <li>Simplified new hire laptop provisioning — decreased Day-1 problems, improved onboarding readiness</li>
+            <li>Achieved <strong style="color: var(--green);">>95% Pulse satisfaction</strong> by optimizing IT onboarding</li>
+            <li>Built n8n workflow automations for courier tracking, asset management, and worker offboarding</li>
+            <li>Ran IT Clinics, IT Connect Days, and cybersecurity training sessions for user enablement</li>
+            <li>Maintained <strong style="color: var(--green);">>95% uptime</strong> through proactive monitoring and preventive checks</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="font-size: 18px; font-weight: 700;">Site Support Engineer</h3>
+              <p style="color: var(--accent-light); font-weight: 600;">Net Connect Global — Hero MotoCorp</p>
+            </div>
+            <span class="mono" style="font-size: 13px; color: var(--text-muted);">May 2024 &mdash; Jan 2025</span>
+          </div>
+          <ul style="color: var(--text-secondary); margin-top: 12px; padding-left: 16px; font-size: 14px; display: grid; gap: 8px;">
+            <li>Delivered comprehensive IT support at Hero MotoCorp corporate office</li>
+            <li>Managed macOS environments — installation, configuration, Windows integration</li>
+            <li>Oversaw IT asset and inventory management with compliance standards</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="font-size: 18px; font-weight: 700;">Desktop Support Engineer</h3>
+              <p style="color: var(--accent-light); font-weight: 600;">Microland Limited — Tata AIG</p>
+            </div>
+            <span class="mono" style="font-size: 13px; color: var(--text-muted);">Oct 2023 &mdash; May 2024</span>
+          </div>
+          <ul style="color: var(--text-secondary); margin-top: 12px; padding-left: 16px; font-size: 14px; display: grid; gap: 8px;">
+            <li>Primary IT support for 150+ users at Tata AIG Gurgaon branch</li>
+            <li>Configured VLANs, Wi-Fi access points, and switching environments</li>
+            <li>Administered Active Directory — provisioning, access control, security policies</li>
+            <li>Managed data protection using EMC Avamar — backup and encryption strategies</li>
+            <li>Delivered high-priority VIP support to senior executives</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="font-size: 18px; font-weight: 700;">Site Support Engineer</h3>
+              <p style="color: var(--accent-light); font-weight: 600;">Microland Limited — Hero MotoCorp</p>
+            </div>
+            <span class="mono" style="font-size: 13px; color: var(--text-muted);">Jun 2022 &mdash; Oct 2023</span>
+          </div>
+          <ul style="color: var(--text-secondary); margin-top: 12px; padding-left: 16px; font-size: 14px; display: grid; gap: 8px;">
+            <li>Full IT support for corporate office — hardware, software, networking</li>
+            <li>VIP support to top management with zero downtime</li>
+            <li>Implemented and managed video conferencing solutions</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <div class="fade-in">
+        <div class="section-label">Projects</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 16px;">Things I've built</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 40px; max-width: 600px;">From enterprise workflow automations to interactive web apps — here's what I've shipped.</p>
+      </div>
+
+      <!-- n8n Automations -->
+      <div class="fade-in" style="margin-bottom: 40px;">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          n8n Workflow Automations
+        </h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-cols-responsive">
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Courier Tracker — Entry Alerts</h4>
+              <span class="badge badge-active"><span class="status-dot" style="width: 6px; height: 6px;"></span> Active</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Monitors SharePoint Excel for new courier entries. Sends grouped, scannable Slack DMs to 4 team members at 9AM/6PM IST with severity tiers and row-level detail.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">n8n</span>
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">SharePoint</span>
+              <span class="skill-tag cyan" style="font-size: 11px; padding: 3px 10px;">Slack API</span>
+              <span class="skill-tag green" style="font-size: 11px; padding: 3px 10px;">Scheduled</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Worker Offboarding — Asset Return</h4>
+              <span class="badge badge-active"><span class="status-dot" style="width: 6px; height: 6px;"></span> Active</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Reads daily Workday email, parses Excel attachment, identifies terminating workers with BCG laptops, and auto-drafts personalized Outlook emails requesting asset return.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">n8n</span>
+              <span class="skill-tag" style="font-size: 11px; padding: 3px 10px;">Outlook</span>
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">Excel</span>
+              <span class="skill-tag pink" style="font-size: 11px; padding: 3px 10px;">Email Automation</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Asset Tracker — Slack Notifications</h4>
+              <span class="badge badge-internal">Internal</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Reads the 2026 device tracking sheet and sends Slack notifications on asset movements — loaner devices, handovers, and returns.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">n8n</span>
+              <span class="skill-tag cyan" style="font-size: 11px; padding: 3px 10px;">Slack API</span>
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">SharePoint</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Office Performance Dashboard</h4>
+              <span class="badge badge-internal">Internal</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Office-wise performance ranking dashboard comparing location results. Includes click-rate indicators, best-to-worst rankings, and decision-ready snapshots for leadership.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">Data Analysis</span>
+              <span class="skill-tag green" style="font-size: 11px; padding: 3px 10px;">Dashboard</span>
+              <span class="skill-tag" style="font-size: 11px; padding: 3px 10px;">KPI Tracking</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Web Apps -->
+      <div class="fade-in" style="margin-bottom: 40px;">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Web Applications
+        </h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-cols-responsive">
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Hook the Phish — BCG</h4>
+              <span class="badge badge-internal">Internal</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Interactive phishing awareness game built for BCG employees. Gamified cybersecurity training that teaches users to identify phishing emails through real-world scenarios.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag cyan" style="font-size: 11px; padding: 3px 10px;">React 19</span>
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">Vite</span>
+              <span class="skill-tag" style="font-size: 11px; padding: 3px 10px;">JSX</span>
+              <span class="skill-tag pink" style="font-size: 11px; padding: 3px 10px;">Security Awareness</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Can You Catch the Fish?</h4>
+              <span class="badge badge-internal">Internal</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Enhanced variant of the phishing game with Tailwind CSS styling. Improved UI/UX with responsive design and engaging visual feedback for training effectiveness.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag cyan" style="font-size: 11px; padding: 3px 10px;">React 19</span>
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">Vite</span>
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Phishing Portal</h4>
+              <a href="https://github.com/Apandey8802/phishing-portal" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Open-source phishing awareness portal. Public repository showcasing cybersecurity training methodology and interactive detection exercises.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag green" style="font-size: 11px; padding: 3px 10px;">Open Source</span>
+              <span class="skill-tag pink" style="font-size: 11px; padding: 3px 10px;">Cybersecurity</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+              <h4 style="font-weight: 700;">Driver Alertness System</h4>
+              <span class="badge badge-prototype">Prototype</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+              Drowsiness detection prototype that monitors driver alertness in real-time and triggers warnings based on risk indicators. Built during diploma studies.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag green" style="font-size: 11px; padding: 3px 10px;">Python</span>
+              <span class="skill-tag" style="font-size: 11px; padding: 3px 10px;">Computer Vision</span>
+              <span class="skill-tag pink" style="font-size: 11px; padding: 3px 10px;">IoT</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Infra Projects -->
+      <div class="fade-in">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          Infrastructure & Enterprise Projects
+        </h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-cols-responsive">
+
+          <div class="project-card">
+            <h4 style="font-weight: 700; margin-bottom: 8px;">Network Infrastructure Overhaul</h4>
+            <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 8px;">Tata AIG, Gurgaon</p>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">
+              Optimized network performance and reliability by ~30% through VLAN configuration, Wi-Fi optimization, and switching environment improvements.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag green" style="font-size: 11px; padding: 3px 10px;">Networking</span>
+              <span class="skill-tag blue" style="font-size: 11px; padding: 3px 10px;">VLANs</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h4 style="font-weight: 700; margin-bottom: 8px;">Data Security Enhancement</h4>
+            <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 8px;">Tata AIG — EMC Avamar</p>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">
+              Reduced recovery time by ~40% by improving backup and restore workflows using EMC Avamar. Enhanced data security and compliance posture.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="skill-tag pink" style="font-size: 11px; padding: 3px 10px;">Data Security</span>
+              <span class="skill-tag" style="font-size: 11px; padding: 3px 10px;">EMC Avamar</span>
+              <span class="skill-tag orange" style="font-size: 11px; padding: 3px 10px;">Backup</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section" style="background: var(--bg-secondary);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <div class="fade-in">
+        <div class="section-label">Skills</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 40px;">Technical arsenal</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;" class="grid-cols-responsive">
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--cyan);">&#9670;</span> Frontend & Web Development
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag cyan">React 19</span>
+            <span class="skill-tag cyan">Vite</span>
+            <span class="skill-tag cyan">Tailwind CSS</span>
+            <span class="skill-tag cyan">JavaScript / JSX</span>
+            <span class="skill-tag cyan">HTML5 / CSS3</span>
+            <span class="skill-tag cyan">Responsive Design</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--green);">&#9670;</span> Backend & Scripting
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag green">Node.js</span>
+            <span class="skill-tag green">Python</span>
+            <span class="skill-tag green">REST APIs</span>
+            <span class="skill-tag green">Shell Scripting</span>
+            <span class="skill-tag green">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--orange);">&#9670;</span> Automation & Integration
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag orange">n8n Workflows</span>
+            <span class="skill-tag orange">Slack API</span>
+            <span class="skill-tag orange">Microsoft Graph</span>
+            <span class="skill-tag orange">Outlook / Excel / SharePoint</span>
+            <span class="skill-tag orange">Webhook Integrations</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--accent-light);">&#9670;</span> AI & Developer Tools
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag">Claude Code</span>
+            <span class="skill-tag">AI-Assisted Development</span>
+            <span class="skill-tag">MCP Servers</span>
+            <span class="skill-tag">Git / GitHub CLI</span>
+            <span class="skill-tag">GenAI Adoption</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--blue);">&#9670;</span> IT Operations & Infrastructure
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag blue">Windows 10/11</span>
+            <span class="skill-tag blue">macOS</span>
+            <span class="skill-tag blue">Active Directory</span>
+            <span class="skill-tag blue">Intune / Autopilot</span>
+            <span class="skill-tag blue">ITIL</span>
+            <span class="skill-tag blue">Incident Management</span>
+            <span class="skill-tag blue">SLA Tracking</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <h4 style="font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--pink);">&#9670;</span> Security & Compliance
+          </h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="skill-tag pink">Cybersecurity Awareness</span>
+            <span class="skill-tag pink">EMC Avamar</span>
+            <span class="skill-tag pink">Data Protection</span>
+            <span class="skill-tag pink">Access Controls</span>
+            <span class="skill-tag pink">Vulnerability Tracking</span>
+            <span class="skill-tag pink">ITAM Compliance</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <div class="fade-in">
+        <div class="section-label">Education</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 40px;">Always learning</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-cols-responsive">
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+              <div>
+                <h4 style="font-weight: 700;">Bachelor's in Computer Applications</h4>
+                <p style="color: var(--accent-light); font-size: 14px;">Chandigarh University</p>
+              </div>
+              <span class="badge badge-active"><span class="status-dot" style="width: 6px; height: 6px;"></span> Pursuing</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 13px; margin-top: 8px;">Feb 2026 — Present</p>
+          </div>
+          <div class="project-card">
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+              <div>
+                <h4 style="font-weight: 700;">Diploma in Electronics & Communications</h4>
+                <p style="color: var(--accent-light); font-size: 14px;">Pusa Institute of Technology</p>
+              </div>
+              <span class="mono" style="font-size: 12px; color: var(--text-muted);">Graduated 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" style="background: var(--bg-secondary);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; text-align: center;">
+      <div class="fade-in">
+        <div class="section-label">Contact</div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 16px;">Let's connect</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 36px;">Open to new opportunities, collaborations, and interesting conversations.</p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="mailto:apandey8802@gmail.com" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/abhishek-kumar-pandey-85199a208" target="_blank" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/Apandey8802" target="_blank" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="tel:+917048944904" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call
+          </a>
+        </div>
+        <p class="mono" style="color: var(--text-muted); font-size: 12px;">New Delhi, India &bull; +91 7048944904 &bull; apandey8802@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 24px; text-align: center; border-top: 1px solid var(--border);">
+    <p class="mono" style="color: var(--text-muted); font-size: 12px;">
+      Built with code, caffeine, and Claude &bull; &copy; 2026 Abhishek Kumar Pandey
+    </p>
+  </footer>
+
+  <!-- Scroll Animation -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth nav highlight
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
