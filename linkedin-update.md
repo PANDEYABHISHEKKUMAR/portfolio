@@ -200,11 +200,38 @@ Full IT support for Hero MotoCorp's corporate office — hardware, software, and
 
 ---
 
-## 10. FEATURED SECTION (Pin these at top of profile)
+## 10. CERTIFICATIONS (Add under "Licenses & Certifications")
+
+**Cert 1:**
+- Name: Claude Code in Action
+- Issuing organization: Anthropic
+- Issue date: March 2026
+- Credential ID: k4chnqucdht7
+- Credential URL: https://verify.skilljar.com/c/k4chnqucdht7
+
+**Cert 2:**
+- Name: AI Fluency: Framework & Foundations
+- Issuing organization: Anthropic
+- Issue date: March 2026
+
+**Cert 3:**
+- Name: Claude 101
+- Issuing organization: Anthropic
+- Issue date: March 2026
+
+**Cert 4:**
+- Name: Introduction to Artificial Intelligence
+- Issuing organization: IBM SkillsBuild
+- Issue date: March 2026
+- Credential ID: ALM-COURSE_4058993
+
+---
+
+## 11. FEATURED SECTION (Pin these at top of profile)
 
 Add links:
 1. GitHub — https://github.com/Apandey8802
-2. Portfolio — (once deployed, add the URL here)
+2. Portfolio — https://portfolio-three-beta-1wwz4s1ea5.vercel.app/
 
 ---
 
